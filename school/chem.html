@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head>
+<script type="text/javascript" src="chem.js"></script>
+<style>
+div{text-align: left;}
+</style>
+<title>AP Chem ions memorization game</title>
+</head>
+
+<body onload="clear()">
+
+
+<h1>AP Chem ions memorization game</h1>
+<hr>
+<table>
+    <tr><th>ION NAME</th><th>SYMBOL</th><th>CHG</th><th>SIGN</th></tr>
+    
+    
+    <tr>
+        <td rowspan="2"><input type="text" id="name" onkeyup="if(event.keyCode==13) document.getElementById('button').click()" style="width: 125px"></td>
+        <td rowspan="2" id="symboltd"><input type="text" id="symbol" onkeyup="if(event.keyCode==13) document.getElementById('button').click()" style="width:75 px"></td>
+        <td rowspan="2"><input type="text" id="charge" onkeyup="if(event.keyCode==13) document.getElementById('button').click()" style="width: 15px"></td>
+            <td>
+                <label for="sign">+</label><input type="radio" id="sign+" name="sign">
+            </td>
+    </tr>
+    <tr>
+            <td>
+                <label for="sign">-</label><input type="radio" id="sign-" name="sign">
+            </td>
+    </tr>
+</table>
+<input type="button" id="button" onclick="check()" value="check!">
+
+
+<hr>
+<p>Reminder: ion name is always lowercase, and don't forget the roman numerals! (e.g. vanadium(II) )</p>
+<p>Study this first! &rarr; <a href="chem.pdf">STUFF I need to memorize in AP Chemistry</a></p>
+
+
+<table><tr><td style="padding: 50px">
+<div id="history">
+<h3>PREVIOUS</h3>
+<table style="outline: medium solid">
+    <tr><th>ION NAME</th><th>SYMBOL</th><th>CHG</th><th>SIGN</th></tr>
+    <tbody id="tbody">
+    
+
+<!-- should be dynamically created (and destroyed)    
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+-->
+    </tbody>
+</table>
+</div></td><td>
+
+<!-- use css to make history on the left, scores on the right -->
+
+<div id="scores">
+<h3>SCORE</h3>
+<table style="outline: medium solid">
+	<tr><th>CORRECT</th><td id="correct">0</td></tr>
+	<tr><th>INCORRECT</th><td id="incorrect">0</td></tr>			<!-- background box color for correct=green, red etc-->
+</table>
+</div>
+</td></tr></table>
+
+
+
+
+
+
+</body>
+</html>
