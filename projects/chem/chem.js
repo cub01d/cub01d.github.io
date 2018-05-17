@@ -1,7 +1,7 @@
 var ions = new Array();
-ions = 	
+ions =
 [
-	'ammonium', 'copper(I)', 'hydronium', 'silver', 'cadmium(II)', 'chromium(II)', 
+	'ammonium', 'copper(I)', 'hydronium', 'silver', 'cadmium(II)', 'chromium(II)',
 	'copper(II)', 'cobalt(II)', 'iron(II)', 'lead(II)', 'mercury(I)',
 	'mercury(II)', 'manganese(II)', 'nickel(II)', 'tin(II)', 'vanadium(II)', 'zinc',
 	'cobalt(III)', 'chromium(III)', 'iron(III)', 'lead(III)', 'nickel(III)', 'vanadium(III)',
@@ -18,7 +18,7 @@ ions =
 
 
 var charge = new Array();
-charge = 
+charge =
 [
 	1,1,1,1,
 	2,2,2,2,2,2,2,2,2,2,2,2,2,
@@ -26,14 +26,14 @@ charge =
 	4,4,4,
 	7,
 
-	
+
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	2,2,2,2,2,2,2,2,2,
 	3,3,3
 ];
 
 var sign = new Array();
-sign = 
+sign =
 [
 	'+','+','+','+',
 	'+','+','+','+','+','+','+','+','+','+','+','+','+',
@@ -47,20 +47,20 @@ sign =
 ];
 
 var symbol = new Array();
-symbol = 
+symbol =
 [
 	'NH<sub>4</sub>', 'Cu(1)', 'H<sub>3</sub>O', 'Ag',
 	'Cd', 'Cr(2)', 'Cu(2)', 'Co(2)', 'Fe(2)', 'Pb(2)', 'Hg<sub>2</sub>', 'Hg', 'Mn(2)', 'Ni(2)', 'Sn(2)', 'V(2)', 'Zn',
 	'Co(3)', 'Cr(3)', 'Fe(3)', 'Pb(3)', 'Ni(3)', 'V(3)',
 	'Sn(4)', 'Pb(4)', 'V(4)',
 	'Mn(7)',
-	
+
 	'CH<sub>3</sub>COO/C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>', 'BrO', 'BrO<sub>2</sub>', 'BrO<sub>3</sub>',
-	'BrO<sub>4</sub>', 'ClO', 'ClO<sub>2</sub>', 'ClO<sub>3</sub>', 'ClO<sub>4</sub>', 'CN', 
-	'H<sub>2</sub>PO<sub>4</sub>', 'HCOO', 'HCO<sub>3</sub>', 'HSO<sub>3</sub>', 'HSO<sub>4</sub>', 'HS', 
+	'BrO<sub>4</sub>', 'ClO', 'ClO<sub>2</sub>', 'ClO<sub>3</sub>', 'ClO<sub>4</sub>', 'CN',
+	'H<sub>2</sub>PO<sub>4</sub>', 'HCOO', 'HCO<sub>3</sub>', 'HSO<sub>3</sub>', 'HSO<sub>4</sub>', 'HS',
 	'OH', 'NO<sub>2</sub>', 'NO<sub>3</sub>', 'IO', 'IO<sub>2</sub>', 'IO<sub>3</sub>', 'IO<sub>4</sub>',
 	'MnO<sub>4</sub>', 'SCN',
-	'CO<sub>3</sub>', 'CrO<sub>4</sub>', 'Cr<sub>2</sub>O<sub>7</sub>', 'HPO<sub>4</sub>', 
+	'CO<sub>3</sub>', 'CrO<sub>4</sub>', 'Cr<sub>2</sub>O<sub>7</sub>', 'HPO<sub>4</sub>',
 	'C<sub>2</sub>O<sub>4</sub>', 'O<sub>2</sub>', 'SO<sub>3</sub>', 'SO<sub>4</sub>',
 	'S<sub>2</sub>O<sub>3</sub>', 'PO<sub>3</sub>', 'PO<sub>4</sub>', 'AsO<sub>4</sub>'
 ]
@@ -105,7 +105,7 @@ function clear(){
 	} else {
 		document.getElementById("symboltd").innerHTML=symbol[id];
 	}
-	
+
 	answer = [ions[id], symbol[id], charge[id], sign[id]];
 
 }
@@ -119,7 +119,7 @@ function check(){
 				update();
 				return 0;
 			}
-		} else	
+		} else
 		if (symbol[id].indexOf("<")>0) {
 			if (document.getElementById("symbol").value != symbol[id].replace(/\<\/?sub\>/g,"") ) {
 				incorrect++;
@@ -127,7 +127,7 @@ function check(){
 				update();
 				return 0;
 			}
-		}	
+		}
 	} else {
 		if (document.getElementById("name").value!=ions[id]) {
 			incorrect++;
@@ -158,36 +158,4 @@ function check(){
 	clear();
 	update();
 	return 0;
-}	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

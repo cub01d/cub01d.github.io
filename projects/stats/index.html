@@ -1,100 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>A Variation on the Drunken Sailor Problem</title>
-	<link rel="icon" type="image/jpeg" href="/images/icon.jpg" />
-	<style type="text/css">
-	body {font-family: fixedsys, "dejavu sans mono", courier, monospace; color:#d4c3b1; background-color:#000000; color:#ffffff;}
-	span {font-size: 90px;}
-	td {padding:15px; border: 1px solid white;}
-	a:link, a:visited {
-		text-decoration:none;
-		color:#0087E2;
-		font-weight:bold;
-		text-shadow:1px 1px 5px #999
-	}
+        ABSTRACT
+            In the typical Drunken Sailor problem, a drunken sailor is placed as in the center of a pier.
+            With an equal probability of going north, south, east, or west, he takes a random step in one of 
+            those directions. The question is: how long will it take before he falls off the pier? In this 
+            experiment, we examine the distance between the origin, where two different types of 
+            walkers are initially placed, and final position of the walkers, after allowing the walkers to 
+            randomly move a certain number of steps. Using Monte Carlo methods,
+            we note the average distance over many trials and fit a regression
+            curve relating the number of steps taken with the final distance. 
 
-	a:hover {
-		text-decoration:underline;
-		color:#048;
-		text-shadow:1px 1px 5px #999
-	}
-        h1 {
-                color:white;
-        }
-	</style>
-</head>
-<body>
-	<div align="center">
-		<h1>A Variation on the Drunken Sailor Program</h1>
-		<hr>
-		<br>
+        INTRODUCTION
 
-   		<table>
-			<tr>
-				<td><a href="/">HOME</a></td>
-				<td><a href="/projects/">Projects</a></td>
-				<td><a href="/stuff/">Cool stuff</a></td>
-				<td><a href="/school">School stuff</a></td>
-                		<td><a href="/about.php">About me</a></td>
-			</tr>
-		</table>
-	</div>
-	<div id="content">
-		<img src="http://grandbenders.com/wp-content/uploads/2012/04/jack57bj0.jpg" style="height:180px; position:relative; top:25px; display:block; margin-left:auto; margin-right:auto" />
-		<div style="text-align: left; padding-left: 10%; padding-right: 10%">
-		<h3>ABSTRACT</h3>
-			<p>In the typical Drunken Sailor problem, a drunken sailor is placed as in the center of pier.
-			With an equal probability of going north, south, east, or west, he takes a random step in one of 
-			those directions. The question is: how long will it take before he falls off the pier? In this 
-			experiment, we examine the distance from the center of the field where two different types of 
-			"walkers" (or drunken sailors) are initially placed to their final position, and find a regression
-			curve relating the number of steps taken and the final distance. In doing so, we employ the 
-			statistical techniques of transforming nonlinear data into linear data and fitting a least-squares 
-			regression line to the data.</p> 
-		<h3>INTRODUCTION</h3>
-			<p>In our experiment, we introduce two types of "walkers." The first one, the <strong>LatticeWalker
-			</strong>, is the most similar to the drunken sailor. Our LatticeWalker can take a single step up, 
-			down, left, or right at the end of each unit of time. The LatticeWalker takes steps 1 unit wide, 
-			and can only walk on lattice points. In contrast, our <strong>AngledWalker</strong>, the other 
-			type of walker, can walk in between lattice points. The AngledWalker takes its name from its ability 
-			to take a step in a direction denoted by an integral number of degrees (0-360). With both of these 
-			walker objects, we hypothesize that the mean distance from the origin after a number of steps would 
-			be related to the square root of the number.</p>
-		<h3>THE EXPERIMENT</h3>
-			<p>We conducted this experiment with a Monte Carlo simulation implemented graphically in python using 
-			<a href="http://matplotlib.org">matplotlib</a>. We first defined walker, field, and location classes, 
-			and then LatticeWalker and AngledWalker subclasses inherited from the walker class. We then defined
-			methods in which our walkers could move and return their locations.</p>
-			<p>I decided to stick with 50 trials for each <em>n</em> number of steps taken, taking <em>n</em>
-			from 0 to 1000 steps. Each trial had a separate instance of the same walker object. We placed each 
-			walker instance on the origin and ran the simulation. Plotting the mean	distance from the origin 
-			for 50 trials against <em>n</em> the number of steps taken, we then repeated this for <em>n</em> within
-			0 to 1000 (figures 1 and 4). With a power regression, we transformed the data so they appeared linear. 
-			We then fit a least-squares regression line by minimizing the sum of the squares of the errors (figures
-			2 and 5). Finally, we plotted the residual distances to see how well our data fit (figures 3 and 6). 
-			The r-values and r<sup>2</sup>-values are provided below as well as the data.</p>
-		<h3>THE DATA</h3>
-			<img src="a1.png" title="figure 1" /><img src="a2.png" title="figure 2" /><img src="a3.png" title="figure 3" />
-			<img src="l1.png" title="figure 4" /><img src="l2.png" title="figure 5" /><img src="l3.png" title="figure 6" />
-		<h3>CONCLUSIONS</h3>
-			<p>From our r<sup>2</sup> value, we conclude that the 95% of the variation in the mean distance 
-			from the origin is explained in our model by the variation in the number of steps taken. With an exponent 
-			close to 0.5, our LSRL approximates a square-root relation. Because the data points represent mean 
-			values, it is expected that the individual values will differ more. However, upon inspection of the 
-			residual plots, we see that the data fit a triangular pattern, having a wider spread as the number 
-			of steps increases on the right, and having less spread as the number of steps decreases on the left.
-			This is partly explained due to the fact that our number of trials was kept constant (50) whereas the 
-			number of steps taken gradually increased. To accomodate, we should have increased the number of
-			trials for the data to better fit the curve. As a result, when the number of steps taken increased,
-			the spread of the data increased as well.
-		<h3>SOURCE CODE</h3>
-		<ul><li><a href="source.zip">source.zip</a>, 3MB Python code</li></ul>
-		<br>
-		</div>
-	</div>
-</body>
-</html>
-<!--
+            In our experiment, we introduce two varieties of walkers. The first one, the LatticeWalker
+            , is the most similar to the drunken sailor. Our LatticeWalker takes a single step up, 
+            down, left, or right at every epoch,
+            and can walk only on lattice points. The second one, the AngledWalker,
+            takes its name from its ability 
+            to take a step in a direction denoted by an integral number of degrees (0-360). With both of these 
+            walker objects, we hypothesize that the mean distance from the origin is related to the square root
+            of the number of steps taken.
 
-https://docs.google.com/presentation/d/1a9AF5mwkcJJ4G_tgutF7rv1Ydwcnp2qpzprY5inpCks/pub?start=false&loop=false&delayms=3000
+        PROBLEM STATEMENT
+            Given the number of steps taken from the origin as the independent variable, find the average distance from the origin.
+
+        EXPERIMENT
+            We conducted this experiment with a Monte Carlo simulation implemented in Python 2, using 
+            Matplotlib to display our graphs. We first defined walker, field, and location classes, 
+            and then LatticeWalker and AngledWalker subclasses inherited from the walker class, with 
+            movement methods and distance metrics defined to keep track of the data.
+            
+
+            The data were collected from n=0 to n=1000 steps. For each step n, 100 trials were performed (figures 1 and 4). 
+            We transformed our data into to fit a power regression, and then used linear least-squares for our regression line
+            (figures 2 and 5). We transformed the regression line back into the original input space. 
+            The r-values and r<sup>2</sup>-values are provided below as well as the data.</p>
+        <h3>THE DATA</h3>
+            <img src="a1.png" title="figure 1" /><img src="a2.png" title="figure 2" /><img src="a3.png" title="figure 3" />
+            <img src="l1.png" title="figure 4" /><img src="l2.png" title="figure 5" /><img src="l3.png" title="figure 6" />
+        <h3>CONCLUSIONS</h3>
+            <p>From our r<sup>2</sup> value, we conclude that the 95% of the variation in the mean distance 
+            from the origin is explained in our model by the variation in the number of steps taken. With an exponent 
+            close to 0.5, our LSRL approximates a square-root relation. Because the data points represent mean 
+            values, it is expected that the individual values will differ more. However, upon inspection of the 
+            residual plots, we see that the data fit a triangular pattern, having a wider spread as the number 
+            of steps increases on the right, and having less spread as the number of steps decreases on the left.
+            This is partly explained due to the fact that our number of trials was kept constant (100) whereas the 
+            number of steps taken gradually increased. To accomodate, we should have increased the number of
+            trials for the data to better fit the curve. As a result, when the number of steps taken increased,
+            the spread of the data increased as well.
