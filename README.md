@@ -2,6 +2,9 @@
 
 Old website with various high school projects and other things.
 
+**Lowell hacking club:** see [here](./lhc)
+
+
 ### Contents
 
 - [`contest`](./contest/): A couple of high school level competition math books. Contains problems, answer keys, and solutions.
